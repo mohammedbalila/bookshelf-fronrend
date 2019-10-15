@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark  fixed-top" #stickyMenu 
+[class.sticky] = "sticky" role="navigation" style="z-index:1000"  > 
+  <div class="container-fluid" style="padding-right:2%" >
+   
+<!-- Toggler/collapsibe Button -->
+<button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" (click)="toggleNavbar()">
+<span class=" navbar-toggler-icon"></span>
+</button>
+
+
+<button (click)="signout()" class="btn btn-light btn-sm navbar-brand"  routerLink="/user/modal">
+
+  <span   style="color:black;font-size: 16px"      >
+           تسجيل الخروج
+  </span>
+              <img class="logologin" src="assets/images/login.png" alt="logo">
+
+          </button>
+
+
+
+<div  class="collapse navbar-collapse" id="collapsibleNavbar" dir="rtl" [ngClass]="{ 'show': navbarOpen }" >
+    <ul class="nav navbar-nav ml-auto" style="font-size: 18px" >
+
+    <li class="nav-item active " >
+        <a  class="ax nav-link" routerLink="/user/search" (click)="toggleNavbar()">  البحث
+          <mat-icon >search</mat-icon>
+         
+        </a>
+      
+      </li>
+
+<li class="nav-item active " >
+  <a  class="ax nav-link" routerLink="/user/home" (click)="toggleNavbar()" >تصفح المكتبة
+    <mat-icon >home</mat-icon>
+   
+  </a>
+
+</li>
+<li class=" nav-item active" [matMenuTriggerFor]="menu" >
+  <a class="ax nav-link " (click)="toggleNavbar()">  الفئات 
+
+  <mat-menu #menu="matMenu"  >
+      <button (click)="openPage('5d848afbec077669242fb623')" mat-menu-item  >روايات</button>
+
+        <button (click)="openPage('5d848c20ec077669242fb624')" mat-menu-item>تنمية ذاتية</button>
+        <button (click)="openPage('5d848c20ec077669242fb625')" mat-menu-item>سيرة ذاتية</button>
+    
+        <button (click)="openPage('5d848c20ec077669242fb626')" mat-menu-item>سياسة وتاريخ واقتصاد</button>
+        <button (click)="openPage('5d848c20ec077669242fb627')" mat-menu-item>دينية</button>
+        <button (click)="openPage('5d848c86ec077669242fb628')" mat-menu-item>كتب لغات</button>
+        <button (click)="openPage('5d848c98ec077669242fb629')" mat-menu-item>كتب علمية وتعليمية</button>
+        <button (click)="openPage('5d848caaec077669242fb62a')" mat-menu-item>  مجلات</button>
+
+ 
+    </mat-menu>
+    <mat-icon >pages</mat-icon>
+
+  </a>
+</li>
+<li class="nav-item">
+  <a class="ax nav-link" routerLink="/user/exchange" (click)="toggleNavbar()"> تبديل الكتب 
+    <mat-icon >autorenew</mat-icon>
+
+    
+  </a>
+</li>
+<li class=" nav-item">
+  <a class="ax nav-link" matBadge="{{cartService.bookLength}}" matBadgeColor="warn" routerLink="/user/basket" (click)="toggleNavbar()">  سلة المشتريات
+    <mat-icon >shopping_cart</mat-icon>
+
+    
+      </a>
+</li>
+
+<li class="nav-item">
+  <a class="ax nav-link" matBadge="{{order}}" matBadgeColor="warn" routerLink="/user/status" (click)="toggleNavbar()"> حالة الطلب شراء/تبديل  
+    <mat-icon >local_taxi</mat-icon>
+</a>
+    
+</li>
+<li class="nav-item">
+  <a class="ax nav-link" matBadge="{{noti}}" matBadgeColor="warn" routerLink="/user/noti" (click)="toggleNavbar()">الاشعارات
+    <mat-icon >    notification_important
+      </mat-icon>
+
+</a>
+</li>
+<li class="nav-item">
+  <a class="ax nav-link" routerLink="/user/profile" (click)="toggleNavbar()">اعدادات الحساب  
+  <mat-icon >build</mat-icon>
+</a>
+</li>
+
+
+</ul>
+</div>
+<a class="navbar-brand"  routerLink="/user/home"   (click)="toggleNavbar()">
+
+  <img  style="width:60px;padding-bottom:3px;"      src="assets/images/logoo.png" alt="logo" >
+</a>
+
+
+              
+</div>
+</nav>
+
+
+
+
+<router-outlet>
+
+</router-outlet>

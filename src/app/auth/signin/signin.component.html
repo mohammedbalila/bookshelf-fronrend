@@ -1,0 +1,102 @@
+<div class="hero-image"  >
+    <nav class="navbar navbar-expand-sm  " style="background-color: transparent;text-align: right;color:whitesmoke">
+  <div class="container">
+<ul class="nav navbar-nav ml-auto">
+
+    <li class="nav-item" style="padding:5px;">
+      <a routerLink="/Index">
+          <button class="btn " style="background-color:transparent;color: white;border:1px solid whitesmoke ">
+
+        الصفحة الرئيسية  
+      </button>
+
+    </a>
+    </li>
+  
+
+    <li class="nav-item" style="padding:5px;"> 
+      <a routerLink="/signup">
+          <button class="btn " style="background-color:transparent;color: white;border:1px solid whitesmoke ">
+
+        التسجيل
+    </button>
+    </a>
+    </li>
+
+</ul>
+
+</div>
+
+</nav>
+    <div dir="rtl" class="hero-text">
+      <div style="text-align:center">
+  <h1 style="font-family:cairo;"  >  تسجيل الدخول 
+  </h1>
+  <br>
+
+  
+              </div>
+    </div>
+    
+  </div>
+  <br>
+
+
+  <div class="container pad" dir="rtl" style="text-align: right;padding-bottom: 5%;">
+<h3 style="text-align: center;padding-top:3%;padding-bottom:3%;">
+  تسجيل الدخول  
+</h3> 
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <div *ngIf="errorMSG" class="bg-danger">
+        {{errorMSG}}
+      </div>
+<div class="form-group">
+    <label style="padding-right:5px;" for="email">البريد الالكتروني:</label>
+    <br>
+    <span style="display:inline-block;width:30%;padding:5px" class="feldd">
+
+    <input #email="ngModel" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" type="text" [class.is-invalid]="email.invalid && email.touched  "  [class.is-valid]="email.valid" class="form-control" id="email" placeholder="البريد الالكتروني" name="email" [(ngModel)]="signin.email">
+    <div *ngIf="email.errors && ( email.touched)">
+      <small class="text-danger" *ngIf="email.errors.pattern">email is invalid</small>
+      <small class="text-danger" *ngIf="email.errors.required">email is required</small>
+    
+    
+    
+    
+    </div> 
+  </span>
+</div>
+
+
+
+
+<div class="form-group">
+    <label style="padding-right:5px;" for="pwd">كلمة السر:</label>
+    <br>
+    <span style="display:inline-block;width:30%;padding:5px;" class="feldd">
+
+    <input  required type="password" class="form-control" id="pwd" placeholder="كلمة السر" name="password" [(ngModel)]="signin.password">
+  </span>
+
+</div>
+
+
+<div style="padding-right: 5px">
+
+<button style="width:15%;padding:5px" type="submit" class="btn btn-secondary bot">ارسال</button>
+</div>
+
+
+
+</form>
+
+
+  </div>
+
+
+
+
+
+
+
+  

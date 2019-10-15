@@ -1,0 +1,163 @@
+<div class="container pad"
+  style="background-color: #F5F5F5;padding-top:15%;padding-bottom:10%">
+  <div style="padding-left:25%;padding-right:25%">
+  
+    <h3 dir="rtl" style="text-align: center"> نقاطك المتبقية: 
+      <span> 
+        <!--
+          user score
+        -->
+         {{user.points}} xp
+        !
+      
+      
+      
+    
+    </span></h3>
+  
+      <br>
+      <a style="cursor: pointer;">
+      <i routerLink="/user/home">
+العودة الى كل الفئات >>>
+      </i>
+    </a>
+      <select (change)="openPage($event.target.value)" class="form-control" style="width:100%;text-align: center">
+          
+          <option value="5d848afbec077669242fb623">
+            روايات
+          </option>
+          <option value="5d848c20ec077669242fb624">
+            تنمية ذاتية
+          </option>
+          <option value="5d848c66ec077669242fb626">
+            سياسة واقتصاد وتاريخ
+          </option>
+          <option value="5d848c46ec077669242fb625">
+            سيرة ذاتية
+          </option>
+          <option value="5d848c77ec077669242fb627">
+            دينية
+          </option>
+    
+          <option value="5d848c98ec077669242fb629">
+    علمية وتعليمية
+          </option>
+          <option value="5d848c86ec077669242fb628">
+            لغات
+          </option>
+          <option value="5d848caaec077669242fb62a">
+            مجلات
+          </option>
+    
+        </select>
+
+
+    <div style="text-align:center">
+
+        <span class="" style="text-align:center;padding-right:15%;padding-left:15%;display: inline;">
+{{cat}}           
+
+        </span>
+      
+
+      </div>
+   
+  </div>
+  <br>
+  <br>
+  <div style="text-align:center">
+
+
+   <span class="btn-outline-primary btn text-black " style="text-align:center;padding-right:15%;padding-left:15%;display: inline;padding-top:5px;padding-bottom:5px">
+
+  
+     
+{{cat}}
+
+      </span>
+<hr>
+    </div>
+  <div class="row" style="font-size:16px;padding-bottom:5%">
+    
+    <div *ngFor="let book of booksById" class="col-sm-3 col-6"
+      style="padding-top:5%;padding-right:2.5%;padding-left:2.5%"  >
+      <div class="card" style="cursor: pointer;">
+        <img style="width:100%;" class="card-img-top" src="https://bookshelf5000.herokuapp.com/static{{book.image}}" (click)="openBook(book._id)">
+        <br>
+          <h5 class="card-title" dir="rtl" style="text-align:center" (click)="openBook(book._id)">
+{{book.name}}         
+ </h5>
+        
+        <span dir="rtl" style="text-align: center">
+<!--
+              المؤلف: {{book.author}}
+              -->
+            <hr>
+              السعر بالجنيه: {{book.priceSdg}}
+              <hr>
+
+              السعر بالنقاط: {{book.priceXp}}
+              <hr>
+
+
+            <button class="btn btn-sm btn-danger"
+            (click)="addToCartCheck(book._id)">
+أضف الى السلة
++
+            </button>
+            <br>
+            &nbsp;
+        </span>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+<!--2-->
+
+
+
+
+
+
+<!--3-->
+
+
+
+<!--4-->
+
+
+
+
+
+
+
+
+<!--
+
+  <div style="text-align:right" dir="rtl">
+    لم تعثر على الكتاب الذي تبحث عنه؟ مكتبتنا قائمة على تبادل الكتب , فربما
+    ستجد ضالتك قريبا
+    <br> ادخل اسم الكتاب والمؤلف وسنخطرك بتوفره في مكتبتنا قريبا في شريط
+    الاشعارات الخاص بك
+    <br>
+    <form #request="ngForm" (ngSubmit)="onSubmit(request.value)">
+      اسم الكتاب :
+      <input required [(ngModel)]="request.bookname" type="text " id="bookname"
+        name="bookname" class="form-control feld" style="width:50%">
+      <br> اسم المؤلف: (اختياري - في حال لم تتعرف عليه)
+      <input type="text " [(ngModel)]="request.authorname" id="authname"
+        name="authname" class="form-control feld" style="width:50%">
+      <br>
+      <button type="submit" class="btn btn-primary">
+        ارسال
+      </button>
+
+    </form>
+  </div>
+-->
+</div>

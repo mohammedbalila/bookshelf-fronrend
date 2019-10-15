@@ -1,0 +1,136 @@
+
+<div class="hero-image"  >
+ 
+ 
+    <div dir="rtl" class="hero-text">
+      <div style="text-align:center">
+  <h1   > تبديل الكتب
+  </h1>
+  
+  
+  
+              </div>
+    </div>
+    
+  </div>
+
+
+<div class="container pad" style="padding-top:10%;padding-bottom:10%">
+<div class="row">
+
+
+
+<div class="col-sm-5" dir="rtl" style="text-align:right">
+<h4>الحساب التقريبي للنقاط في الكتاب الواحد (XP) :
+  (معرفة تقييم الكتاب)
+</h4>
+<br>
+<form>
+<h6>ادخل عدد صفحات الكتاب</h6>
+<input [(ngModel)]="xp.pages" name="pages" type="number" class="form-control">
+<br>
+
+<h6>حدد حالة الكتاب</h6>
+
+<select [(ngModel)]="xp.state" name="state" class="form-control" dir="rtl">
+  <option value="0" disabled>
+    حالة الكتاب :
+  </option>
+  <option value="1">
+    مستعمل بحالة جيدة
+  </option>
+  <option value="2">
+    مستعمل بحالة متوسطة
+  </option>
+  <option value="3">
+    مستعمل بحالة مقبولة
+  </option>
+</select>
+<br>
+<h6>حدد حجم الكتاب</h6>
+<select [(ngModel)]="xp.size" name="size" class="form-control">
+    <option value="0" disabled>
+        حجم الكتاب :
+      </option>
+      <option value="1">
+متوسط
+      </option>
+      <option value="2">
+          صغير
+        </option>
+        <option value="3">
+        صغير جدا
+          </option>
+</select>
+<br>
+
+<h5>تقييم الكتاب : <span class=" btn btn-success">= 
+  {{this.point}}
+  XP</span> 
+</h5>
+<button type="reset" (click)="onxp()" class=" btn btn-primary">  الحساب</button>
+
+</form>
+
+<br>
+<br>
+</div>
+
+<div class= "col-sm-7" style="padding-left:15%;text-align: justify" dir="rtl">
+    <h2 style="text-align:center;padding-bottom:5%">تبديل الكتب</h2>
+    تبديلك لكتبك ما هو الا اتاحة فرصة قيمة جدا للمجتمع ، فكتابك الذي ستتبرع به اليوم سيتيح الفرصة للآلاف بقراءة ذلك الكتاب ، فكلما يقرأ شخص الكتاب فإنه يبدله مرة اخرى وبذلك يصل للمجتمع ككل ، و بتبديلك لكتبك تتاح لك الفرصة ايضا بشراء كتب الآخرين مجانا (حسب نقاطك) ، بالاضافة لرسوم التوصيل 
+<br>
+<br>
+<hr>
+<h4>
+  ادخل عدد الكتب التي تود تبديلها:
+</h4>
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+<input [(ngModel)]="exchange" required name="exchange" type ="number" class="form-control">
+<br>
+<!--
+
+
+<mat-radio-group style="padding-left:10% !important;font-size:16px !important" aria-label="Select an option">
+    <mat-radio-button [disabled] value="1">هل تريد الحصول على النقاط من أجل شراء الكتب الآن؟
+      <br>
+       (  الحد الاقصى 12 كتاب - سنلزمك بكتابة معلومات جميع الكتب 
+       <br>
+       التي ترغب في تبديلها الأن 
+       - قد يتغير التقييم بعد وصول الكتب الينا
+       )  
+      
+      </mat-radio-button>
+    <br>
+    <mat-radio-button value="2">الحصول على النقاط بعد وصول موظف التوصيل</mat-radio-button>
+  </mat-radio-group>
+  -->
+  <small class="text-danger">لانقبل الكتب المقلدة والغير اصلية*</small>
+<br>
+<button [disabled]="f.form.invalid"  type="submit" class="btn btn-danger">اتمام عملية التبديل</button>
+</form>
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

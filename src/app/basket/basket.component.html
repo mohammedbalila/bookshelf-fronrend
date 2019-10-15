@@ -1,0 +1,126 @@
+<div class="container pad" style="padding-top:15%;" dir="rtl">
+  <h4 style="text-align: center;padding-bottom: 8%">
+    سلة شراء الكتب
+  </h4>
+  <!--
+  <span class="btn btn-danger">
+    عمليات الشراء متوقفة مؤقتا الى حين انتهاء الترتيبات
+    حتى يوم
+    1/10/2019
+
+  </span>
+-->
+  <div class="row" style="text-align:right;" *ngIf="cart && cart.books">
+
+    <div class="col-sm-7"
+      style="border-right:whitesmoke solid;padding-right:2.5%;padding-top:3%;padding-bottom:15%; ">
+      <mat-accordion style="background-color:transparent !important ">
+
+        <mat-expansion-panel style="background-color:transparent !important">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{cart.books.length}} كتب
+            </mat-panel-title>
+            <mat-panel-description>
+              اظهار 
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="row cart_book" *ngFor="let book of cart.books">
+            <div class="col-sm-3 col-3 ima" style="text-align: center">
+
+              <img style="width:100%;" class="half" src="https://bookshelf5000.herokuapp.com/static{{book.image}}">
+            </div>
+            <div dir="rtl" class="col-sm-7 col-7 centerlok"
+              style="text-align: right;padding-top:7%;padding-bottom:3%;">
+              {{ book.author.firstName }} {{ book.author.lastName }}
+              <span style="text-align: center">{{ book.name }}</span>
+              <br>
+              {{ book.priceSdg }} جنيه سوداني
+              -
+              {{ book.priceXp }} XP
+            </div>
+
+
+            <div class="col-sm-2 col-2 delbut"
+              style="text-align: center;padding-top:11%;padding-bottom:3%;">
+
+
+              <button (click)="removeFromCart(book._id)"
+                class="btn btn-danger btn-sm">&times;حذف</button>
+
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </div>
+
+    <div class="col-sm-5"
+      style="padding-right:5%;padding-top:3%;padding-bottom:15%">
+      <h5> عدد الكتب المراد شرائها :</h5>
+      <h4 class="text-success" dir="rtl">
+        {{cart.books.length}} كتب
+
+        <small class="text-danger">(كل 12 كتاب يحسب كطلب منفصل )</small>
+      </h4>
+      <br>
+      <h5> سعر الكتب في حالة الدفع بالنقاط :</h5>
+      <h4 class="text-success" dir="rtl">{{xpPrice}} XP</h4>
+      <br>
+      <h5> سعر الكتب في حالة الدفع نقدا :</h5>
+      <h4 class="text-success" dir="rtl">{{sdgPrice}} جنيه سوداني</h4>
+      <br>
+      <small class="text-info">
+        الحد الاقصى المسموح للطلب الواحد هو 12 كتاب
+        <br>
+        <!--
+        في حال طلبت اكثر من 12 كتاب سيتم ترك الكتب الزائدة في السلة الى حين طلبك
+        القادم الذي ستحدده انت !
+        -->
+      </small>
+      <br>
+      <br>
+      <small class="text-danger">
+        * رسوم التوصيل تحدد في الخطوة القادمة
+
+      </small>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        اختر طريقة الشراء من فضلك:
+        <select #type name="type" [class.is-invalid]="type.invalid && type.touched"  [(ngModel)]="selectValue" required class="form-control">
+<option value="0" disabled>اختر طريقة الشراء</option>
+          <option value="1" >الدفع نقدا</option>
+          <option value="2" >الدفع عن طريق نقاطي</option>
+          <option value="3" disabled > الدفع عن طريق النقود والنقاط معا</option>
+
+        </select>  
+        <br>
+        <button (click)="purshasetypeone(selectValue)" [disabled]="type.value == 0" 
+          class="btn float-right btn-danger"> اتمام عملية الشراء</button>
+      </form>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

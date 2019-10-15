@@ -1,0 +1,319 @@
+
+
+
+<div class="container pad" style="padding-top:15%;text-align:center;padding-bottom:10%">
+<h3>
+    اعدادات الحساب
+</h3>
+<span>
+
+ID : {{user._id}}
+<br>
+xp : {{user.points}}
+</span>
+
+<br>
+<div dir="rtl">
+<mat-tab-group >
+    <mat-tab label="معلومات التوصيل">   <div class="container padd" dir="rtl" style="text-align: right;padding-bottom: 5%;padding-top:5%">
+       
+        <form #f="ngForm"  >
+      
+        <div class="form-group" >
+       
+            <label style="padding-right:5px;" for="tel"> رقم الهاتف:</label>
+            <br>
+            <span style="display:inline-block;width:60.5%;padding:5px" class="feldd">
+        
+            <input [(ngModel)]="user.phone" [disabled]="abc"  required type="number" class="form-control" id="tel" placeholder="رقم الهاتف" name="phone">
+          </span>
+          <span style="padding: 10px">
+        
+              <button (click)="ab()" style="width:15%;padding:5px" class="btn btn-secondary bot">تعديل</button>
+      
+              </span>
+              <span style="padding: 10px" >
+      
+              <button (click)="onSub()"  style="width:15%;padding:5px" type="submit" class="btn btn-outline-secondary bot">ارسال</button>
+      
+              </span>
+          
+        </div>
+        </form>
+
+  
+        <form #fv="ngForm" >
+        <div class="form-group" >
+            <label style="padding-right:5px;" for=""> اختر الولاية والمحلية:</label>
+            <br>
+            <span style="display:inline-block;width:30%;padding:5px" class="feld">
+        
+        <select [(ngModel)]="user.address.state" name="state" [disabled]="b" class="form-control"  style="padding:5px">
+          <option>
+            الخرطوم
+          </option>
+        
+        </select>
+        </span>
+        <span style="display:inline-block;width:30%;" class="feld">
+        
+        <select [(ngModel)]="user.address.locality" name="locality" [disabled]="b" class="form-control" style="padding:5px">
+        
+        <option>
+        بحري
+        </option>
+        <option>
+            شرق النيل
+            </option>
+            <option>
+                كرري
+                </option>
+                <option>
+                    امدرمان
+                    </option>
+                    <option>
+                        جبل اولياء
+                        </option>
+                        <option>
+                            بلا بلا بلا
+                            </option>
+                            <option>
+                                بلا بلا بلا
+                                </option>
+        </select>
+        
+        </span>
+        
+        </div>
+        
+        
+        <div class="form-group">
+            <label style="padding-right:5px;" for="street"> ادخل الحي والشارع:</label>
+            <br>
+            <span style="display:inline-block;width:30%;padding:5px" class="feld">
+        
+            <input [(ngModel)]="user.address.street"  [disabled]="b" required type="text" class="form-control" id="street" placeholder="الحي" name="street">
+          </span>
+        
+          <span style=" display:inline-block;width:30%" class="feld">
+            <input [(ngModel)]="user.address.neighborhood" [disabled]="b" required type="text" class="form-control" id="streetone" placeholder="الشارع " name="streetone">
+          </span>
+        </div>
+        
+        
+        <div class="form-group">
+            <label style="padding-right:5px;" for="street">(اختياري) ادخل  العنوان:</label>
+            <br>
+            <span style="display:inline-block;width:60.5%;padding:5px" class="feldd">
+        
+            <input  disabled="b" required type="text" class="form-control" id="all" placeholder="العنوان" name="all">
+          </span>
+        
+        </div>
+      
+        <span style="padding: 10px">
+        
+        <button (click)="a()" style="width:15%;padding:5px" class="btn btn-secondary bot">تعديل</button>
+
+        </span>
+        <span style="padding: 10px" >
+
+        <button (click)="onS(id)"  style="width:15%;padding:5px" type="submit" class="btn btn-outline-secondary bot">ارسال</button>
+
+        </span>
+        
+        
+        
+        </form>
+        
+        
+          </div>
+         </mat-tab>
+    <mat-tab label="تغيير كلمة السر">   <div class="container padd" dir="rtl" style="text-align: right;padding-bottom: 5%;padding-top:5%">
+       
+        <form #f="ngForm" (ngSubmit)="onpass(f.value);" >
+    
+     
+        
+        
+        
+        <div class="form-group">
+            <label style="padding-right:5px;" for="pwd">كلمة السر:</label>
+            <br>
+            <span style="display:inline-block;width:30%;padding:5px" class="feld">
+        
+            <input [(ngModel)]="updatepass.passone" required type="password" class="form-control"  placeholder="كلمة السر القديمة" name="passone">
+          </span>
+        
+          <span style=" display:inline-block;width:30%" class="feld">
+            <input [(ngModel)]="updatepass.passtwo"  required type="password" class="form-control"  placeholder="كلمة السر الجديدة " name="passtwo">
+          </span>
+
+          <span style="display:inline-block;width:30%;padding:5px" class="feldd">
+        
+            <input [(ngModel)]="updatepass.passthree" required type="password" class="form-control"  placeholder=" تأكيد كلمة السر الجديدة " name="passthree">
+          </span>
+
+        </div>
+        
+        
+        
+       
+        <hr>
+       
+        
+      
+        <div style="padding-right: 5px">
+        
+        <button style="width:15%;padding:5px" type="submit" class="btn btn-secondary bot">تعديل</button>
+        </div>
+        
+        
+        
+        </form>
+        
+        
+          </div>
+         </mat-tab>
+       
+    <mat-tab label="طلبات الشراء" > 
+        
+            <div class="mat-elevation-z8" style="padding-top:5%">
+                    <table mat-table [dataSource]="ordersDataSource" style="text-align: right">
+                  
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                      </ng-container>
+                  
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                      </ng-container>
+
+                  
+                      <!-- Weight Column -->
+                      <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef> Price </th>
+                        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                      </ng-container>
+                  
+                      <!-- date Column -->
+                      <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef> date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                      </ng-container>
+                  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                  </div>
+                  
+    
+    
+    
+    
+    
+    
+    
+    
+    </mat-tab>
+    <mat-tab label="طلبات التبديل"> 
+
+            <div class="mat-elevation-z8" style="padding-top:5%">
+                    <table mat-table [dataSource]="tradingsDataSource" style="text-align: right">
+                  
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                      </ng-container>
+                  
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                      </ng-container>
+                  
+                      <!-- Weight Column -->
+                      <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef> Price </th>
+                        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                      </ng-container>
+                  
+                      <!-- date Column -->
+                      <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef> date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                      </ng-container>
+                  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                  </div>
+                      
+    
+    
+    
+    </mat-tab>
+    <mat-tab label="  عدد النقاط المتبقية"> 
+    
+<div class="container" style="padding-top:10%;" dir="rtl">
+    <!-- <h2 class="">     
+       لديك كوبون :
+    <span class="badge badge-success badge-lg">
+      خصم 100% على التوصيل !
+    </span>
+      </h2> 
+     
+    --> <br>
+  <h2 class="">     
+    تبقى لك :
+<span class="badge badge-success badge-lg">
+  {{user.points}} XP !
+</span>
+  </h2> 
+  <br>
+  <br>
+  <!--
+  <span style="padding-bottom:5%;display: block;">
+      <input type="text" class="form-control" style="display: inline;width:50%">
+      <span class="btn btn-primary" style="font-size:16px">
+        اضافة كوبون للتوصيل
+      </span>
+      <span class="spinner-border" role="status" style="font-size:14px">
+          <span class="sr-only">Loading...</span>
+      </span>
+      
+      <input type="text" class="form-control" style="display: inline;width:50%">
+      <span class="btn btn-primary" style="font-size:16px;">
+        اضافة كوبون للنقاط
+      </span>
+      <span class="spinner-border" role="status" style="font-size:14px">
+          <span class="sr-only">Loading...</span>
+          
+      </span>
+      </span>
+      -->
+</div>
+
+
+
+      </mat-tab>
+  </mat-tab-group>
+
+
+
+
+
+
+
+
+
+</div>

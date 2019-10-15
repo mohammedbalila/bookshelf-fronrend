@@ -1,0 +1,48 @@
+@media only screen and (max-width: 900px) {
+    .logo{
+        padding-top:7% !important;
+  
+  
+    }
+    
+
+    .feld {
+      width:50% !important;
+    }
+
+    .feldd{
+      width:101.5% !important;
+    }
+    .bot{
+      width:42% !important;
+    }
+    .pad{
+      padding-top:30% !important;
+      padding-bottom:25% !important;
+    }
+  
+  }
+  
+  
+.ax{
+    color:white !important;
+  }
+   li a:hover{
+      background-color:rgb(82, 88, 94)!important;
+  }
+  
+  .logologin{
+    width:20px;
+  }
+  
+  li a:active{
+    background-color:rgb(82, 88, 94)!important;
+  
+  }
+  .logo{
+     width:260px;
+     padding-top:12% !important;
+  }
+  table {
+    width: 100%;
+  }

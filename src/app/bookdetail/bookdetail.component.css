@@ -1,0 +1,14 @@
+
+@media only screen and (max-width: 900px) {
+  
+  .pad{
+    padding-top:30% !important;
+    padding-bottom:25% !important;
+  }
+  .blc{
+    padding-top:8%;
+    padding-bottom:3%;
+    display: inline-block !important;
+  }
+}
+

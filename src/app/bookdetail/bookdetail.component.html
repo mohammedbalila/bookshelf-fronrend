@@ -1,0 +1,61 @@
+
+<div  class="container pad" style="padding-top:15%;text-align:right;padding-bottom: 15%" >
+
+<div class="row">
+        <div class="col-sm-4">
+
+                <img style="width:100%;" class="img responsive" src="https://bookshelf5000.herokuapp.com/static{{book.image}}" >
+            
+              </div>
+<div class="col-sm-8">
+<h3>
+{{book.name}}
+</h3>
+
+<h4>
+    {{book.author.firstName}}
+    {{book.author.lastName}}
+
+  </h4>
+<br>
+<h6>
+
+    : نبذة عن الكتاب </h6>
+<p style="font-size: 16px">
+{{book.description}}
+</p>
+
+<small >: حالة الكتاب </small> 
+<br>
+<small> {{book.status}} </small>
+<br>
+<small>عدد الصفحات : {{book.pages}}</small>
+<br>
+<small dir="rtl">ملاحظات اضافية : 
+    {{book.note}}</small>
+
+<br>
+<br>
+<h4 dir="rtl" class="text-info">
+    {{book.priceSdg}} جنيه سوداني
+    <br>
+    {{book.priceXp}} xp
+</h4>
+
+<span class="blc">
+<button class="btn btn-danger" style="color:whitesmoke;" (click)="addToCartCheck(book._id)">
+        اضف الى السلة +
+    </button>
+  </span>
+
+
+
+</div>
+
+
+  
+
+</div>
+
+
+</div>

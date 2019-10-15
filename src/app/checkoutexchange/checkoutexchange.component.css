@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+
+@media only screen and (max-width: 1024px) {
+    .feld{
+        width:45% !important;
+    }
+    .feldd{
+        width:90% !important;
+    }
+    
+    .bot{
+        width:45% !important;
+    }
+    .fony{
+        font-size: 25px !important;
+    }
+   
+    .pad{
+      padding-top:30% !important;
+    }
+    #gmap_canvas{
+      width:310px !important;
+      height: 350 !important;
+  } 
+    
+    }
+
+
+
+
+

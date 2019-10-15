@@ -1,0 +1,62 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@media only screen and (max-width: 900px) {
+
+body , html {
+overflow-x: hidden !important; 
+position: relative; 
+
+}
+}
+body, html {
+
+height: 100%;
+margin: 0;
+font-family: 'Tajawal';
+background-color: #F5F5F5;
+
+}
+
+h1 , h2 , h3 , button , .btn {
+    font-family: 'Cairo';
+
+}
+
+a{
+    text-decoration: none !important;
+
+}
+a:hover{
+    text-decoration: none !important;
+    
+
+}
+a:visited{
+    text-decoration: none !important;
+    color:white !important
+
+}
+
+a:link{
+    color:white !important
+}
+.outlinee{
+    color:white !important;
+}
+.outlinee:hover {
+    color:black !important;
+
+}
+.outline{
+    color:black !important;
+}
+
+
+.outline:visited {
+    color:black !important;
+
+}
+.outline:hover {
+    color:white !important;
+
+}

@@ -1,0 +1,45 @@
+.hero-imagee {
+    background-image:  url("/assets/images/book.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+    }
+    @media only screen and (max-width: 1024px) {
+
+.hero-text{
+top: 20% !important;
+left: 8% !important;
+right:5% !important;
+transform: translate(0%,0%) !important;
+}
+}
+.hero-image {
+background-image:  url("/assets/images/book.jpg");
+height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+top:0%;
+}
+
+.hero-text {
+text-align: right;
+position: absolute;
+top: 30%;
+left: 55%;
+right:5%;
+
+color: white;
+}
+
+
+
+.a{
+    display: inline-block !important;
+}
+
+

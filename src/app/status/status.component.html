@@ -1,0 +1,452 @@
+<div class="container pad" style="text-align:center;padding-top:15%;padding-bottom:5%">
+  <h2 style="padding-bottom:5%">
+    حالة طلب شراء الكتب
+  </h2>
+
+
+
+
+  
+    <div  *ngFor="let order of order" >
+      <div *ngIf="order.cancelled==false&& !(order.status=='finished')" >
+        <mat-progress-bar  [mode]="mode" [value]="value1" [bufferValue]="bufferValue1">
+
+
+          </mat-progress-bar>  
+        
+        {{order.status}}
+        <!--
+          <span *ngIf="order.status">
+            جاري معالجة الطلب
+          </span>
+          <span *ngIf="order.status==going">
+        الطلب في طريقه إليك
+          </span>
+          <span *ngIf="order.status==finished">
+        تم وصول الطلب
+          </span>
+          -->
+          <div style="padding:5%"> 
+        
+            <h4 style="font-family:cairo">
+              <!--
+    يجري الان معالجة الطلب ويتوقع ان يصلك في خلال  24 ساعة
+-->
+            </h4>
+            <br>
+            <br>
+    <table class="table table-striped fony" style="font-size:25px" dir="rtl">
+      <tbody>
+        <tr>
+          <td> رقم الطلب: </td>
+          <td class="text-success">
+            {{order._id}}
+          </td>
+
+        </tr>
+        <tr>
+          <td> رقم المستخدم : </td>
+          <td class="text-success">{{user._id}} </td>
+
+        </tr>
+        <!--
+          <tr>
+              <td>  تاريخ الطلب:  </td>
+              <td class="text-success">10/10/2019 </td>
+              
+            </tr>       
+            -->
+        <tr>
+          <td> عدد الكتب: </td>
+          <td class="text-success"><span>
+              {{order.books.length}}</span> كتب </td>
+
+        </tr>
+        <tr>
+          <td> سعر الكتب: </td>
+          <td class="text-success">
+            
+            <span *ngIf="order.priceSDG > 0 " >
+{{order.priceSDG}}
+            ج
+          
+          </span>
+          
+            <span *ngIf="order.priceXP > 0 " >  {{order.priceXP}} XP </span> </td>
+        </tr>
+        <tr>
+          <td>سعر التوصيل:</td>
+          <td class="text-success">
+            {{delivery}}
+            ج
+          </td>
+        </tr>
+        <tr>
+          <td>الاجمالي:</td>
+          <td class="text-success">
+            {{order.totalPrice}}
+           ج
+
+
+          </td>
+        </tr>
+        <tr>
+          <td> اسماء الكتب: </td>
+          <td class="text-success"> 
+            
+            <!--
+<span *ngFor="let book of books.name">
+  {{book}} / <br>
+</span>
+
+                -->
+
+
+                <!--
+            المكافح العنيد <br>/ <br> ستيف جوبز / تاريخ المملكة <br> / <br>رؤية الاقتصاد 2020
+
+-->
+          </td>
+
+        </tr>
+
+        <tr>
+          <td> عدد النقاط المتبقية:</td>
+          <td class="text-success"> {{user.points}} xp</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <br>
+    <h5 style="font-family: Tajawal">
+      <a class="btn btn-primary" (click)="cancel(order._id)">الغاء الطلب</a>
+
+      هل تريد الغاء الطلب؟
+      <br>
+      <br>
+      <span class="text-danger" >
+
+        ! لايمكنك الغاء الطلب بعد تخطي مرحلة معالجة الطلب
+      </span>
+
+    </h5>
+ 
+
+
+
+  <br>
+  <br>
+  <br>
+</div>
+
+</div>
+
+  <h2 style="padding-bottom:5%">
+    حالة طلب تبديل الكتب
+  </h2>
+
+
+
+ 
+  <div  *ngFor="let order of trading" >
+      <div *ngIf="order.cancelled==false&&!(order.status=='finished')" >
+     <mat-progress-bar [mode]="mode" [value]="value1" [bufferValue]="bufferValue1">
+
+
+  </mat-progress-bar>
+
+
+
+  <span>
+    {{order.status}}
+  </span>
+  <!--
+  <span *ngif order.status == "proccing">
+      جاري معالجة الطلب
+    </span>
+    <span>
+الطلب في طريقه للوصول اليك
+      </span>
+      <span>
+تم الوصول
+        </span>
+-->
+
+
+
+  <br>
+  <br>
+  <h4 style="font-family:cairo">
+    <!--
+    يجري الان معالجة الطلب ويتوقع ان يصلك في خلال  24 ساعة
+-->
+  </h4>
+  <br>
+  <br>
+  <table class="table table-striped fony" style="font-size:25px" dir="rtl">
+    
+
+
+
+    <tbody>
+      <tr>
+        <td> رقم الطلب: </td>
+        <td class="text-success">
+          {{order._id}}
+        </td>
+
+      </tr>
+      <tr>
+        <td> رقم المستخدم : </td>
+        <td class="text-success">{{user._id}} </td>
+
+      </tr>
+      <!--
+          <tr>
+              <td>  تاريخ الطلب:  </td>
+              <td class="text-success">10/10/2019 </td>
+              
+            </tr>
+            
+            
+              <tr>
+                  <td>  تاريخ الاستلام   :  </td>
+                  <td class="text-success">10/10/2019 </td>
+                  
+                </tr>
+           -->
+      <tr>
+        <td> عدد الكتب التي تم تبديلها: </td>
+        <td class="text-success">
+          {{order.booksCount}}
+
+          كتب
+        </td>
+
+      </tr>
+
+      <tr>
+        <td>سعر التوصيل:</td>
+        <td class="text-success">مجانا</td>
+      </tr>
+      <tr>
+        <td>الاجمالي:</td>
+        <td class="text-success"> مجانا </td>
+      </tr>
+
+
+      <tr>
+        <td>عدد نقاطك قبل التقييم :</td>
+        <td class="text-success"> {{user.points}} XP</td>
+      </tr>
+      <tr>
+        <td>عدد نقاطك بعد التقييم :</td>
+        <td class="text-success">  XP</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <h5 style="font-family: Tajawal">
+    <a class="btn btn-primary" (click)="cancel(order._id)">الغاء الطلب</a>
+
+    هل تريد الغاء الطلب؟
+    <br>
+    <br>
+    <span class="text-danger" >
+
+      ! لايمكنك الغاء الطلب بعد تخطي مرحلة معالجة الطلب
+    </span>
+
+  </h5>
+
+
+  </div>
+</div>
+ <hr>
+ <br>
+ <br>
+ <br>
+ <br>
+ <hr>
+
+<div>
+  <h4 >
+   
+    العمليات التي تمت بنجاح:
+    الشراء
+  </h4> 
+  <mat-accordion style="background-color:transparent !important ">
+
+      <mat-expansion-panel style="background-color:transparent !important">
+        <mat-expansion-panel-header>
+        
+          <mat-panel-description>
+            اظهار 
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+  <div  *ngFor="let order of order" >
+    <div *ngIf="order.status=='finished'" >
+        <table class="table table-striped fony" style="font-size:25px" dir="rtl">
+            <tbody>
+              <tr>
+                <td> رقم الطلب: </td>
+                <td class="text-success">
+                  {{order._id}}
+                </td>
+      
+              </tr>
+              <tr>
+                <td> رقم المستخدم : </td>
+                <td class="text-success">{{user._id}} </td>
+      
+              </tr>
+              <!--
+                <tr>
+                    <td>  تاريخ الطلب:  </td>
+                    <td class="text-success">10/10/2019 </td>
+                    
+                  </tr>       
+                  -->
+              <tr>
+                <td> عدد الكتب: </td>
+                <td class="text-success"><span>
+                    {{order.books.length}}</span> كتب </td>
+      
+              </tr>
+              <tr>
+                <td> سعر الكتب: </td>
+                <td class="text-success">
+                  
+                  <span *ngIf="order.priceSDG > 0 " >
+      {{order.priceSDG}}
+                  ج
+                
+                </span>
+                
+                  <span *ngIf="order.priceXP > 0 " >  {{order.priceXP}} XP </span> </td>
+              </tr>
+              <tr>
+                <td>سعر التوصيل:</td>
+                <td class="text-success">
+                  {{delivery}}
+                  ج
+                </td>
+              </tr>
+              <tr>
+                <td>الاجمالي:</td>
+                <td class="text-success">
+                  {{order.totalPrice}}
+                 ج
+      
+      
+                </td>
+              </tr>
+              <tr>
+                <td> اسماء الكتب: </td>
+                <td class="text-success"> 
+                  
+                  <!--
+      <span *ngFor="let book of books.name">
+        {{book}} / <br>
+      </span>
+      
+                      -->
+      
+      
+                      <!--
+                  المكافح العنيد <br>/ <br> ستيف جوبز / تاريخ المملكة <br> / <br>رؤية الاقتصاد 2020
+      
+      -->
+                </td>
+      
+              </tr>
+      
+              <tr>
+                <td> عدد النقاط المتبقية:</td>
+                <td class="text-success"> {{user.points}} xp</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          </div>
+          </mat-expansion-panel>
+          </mat-accordion>
+          <h4 >
+   
+              العمليات التي تمت بنجاح:
+              التبديل
+            </h4> 
+            <mat-accordion style="background-color:transparent !important ">
+
+                <mat-expansion-panel style="background-color:transparent !important">
+                  <mat-expansion-panel-header>
+                  
+                    <mat-panel-description>
+                      اظهار 
+                    </mat-panel-description>
+                  </mat-expansion-panel-header> 
+            <div  *ngFor="let order of trading" >
+                <div *ngIf="order.status=='finished'" >
+          
+      
+            <table class="table table-striped fony" style="font-size:25px" dir="rtl">
+              
+          
+          
+          
+              <tbody>
+                <tr>
+                  <td> رقم الطلب: </td>
+                  <td class="text-success">
+                    {{order._id}}
+                  </td>
+          
+                </tr>
+                <tr>
+                  <td> رقم المستخدم : </td>
+                  <td class="text-success">{{user._id}} </td>
+          
+                </tr>
+                <!--
+                    <tr>
+                        <td>  تاريخ الطلب:  </td>
+                        <td class="text-success">10/10/2019 </td>
+                        
+                      </tr>
+                      
+                      
+                        <tr>
+                            <td>  تاريخ الاستلام   :  </td>
+                            <td class="text-success">10/10/2019 </td>
+                            
+                          </tr>
+                     -->
+                <tr>
+                  <td> عدد الكتب التي تم تبديلها: </td>
+                  <td class="text-success">
+                    {{order.booksCount}}
+          
+                    كتب
+                  </td>
+          
+                </tr>
+          
+                <tr>
+                  <td>سعر التوصيل:</td>
+                  <td class="text-success">مجانا</td>
+                </tr>
+                <tr>
+                  <td>الاجمالي:</td>
+                  <td class="text-success"> مجانا </td>
+                </tr>
+          
+          
+              </tbody>
+            </table>
+           
+          </div> 
+</div>
+
+</mat-expansion-panel>
+</mat-accordion>
+</div>

@@ -1,0 +1,58 @@
+.hero-imagee {
+    background-image:  url("/assets/images/sign.jpg");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+    }
+    @media only screen and (max-width: 1024px) {
+
+.hero-text{
+top: 40% !important;
+left: 8% !important;
+right:5% !important;
+transform: translate(0%,0%) !important;
+}
+}
+.hero-image {
+background-image:  url("/assets/images/sign.jpg");
+height: 50%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+top:0%;
+}
+
+.hero-text {
+text-align: right;
+position: absolute;
+top: 35%;
+left: 64%;
+right:10%;
+
+color: white;
+}
+
+@media only screen and (max-width: 1024px) {
+.feld{
+    width:45% !important;
+}
+.feldd{
+    width:91% !important;
+}
+
+.bot{
+    width:45% !important;
+}
+.pad{
+    padding-bottom:25% !important;
+    padding-top:10% !important;
+}
+
+
+
+
+}

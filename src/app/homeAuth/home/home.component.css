@@ -1,0 +1,37 @@
+
+@media only screen and (max-width: 900px) {
+  
+  .pad{
+    padding-top:30% !important;
+    padding-bottom: 25% !important;
+  }
+}
+
+
+.cdk-virtual-scroll-data-source-example .example-viewport {
+  height: 200px;
+  width: 2000px;
+  border: 1px solid black;
+}
+
+.cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.cdk-virtual-scroll-data-source-example .example-item {
+  width: 5000px;
+  height: 100%;
+  writing-mode: vertical-lr;
+}
+
+@media only screen and (max-width: 1024px) {
+   
+  .feld{
+      width:90% !important;
+  }
+ 
+  
+  
+  
+  }
