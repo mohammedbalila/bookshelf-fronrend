@@ -31,7 +31,7 @@
     "core-js": "^2.5.0",
     "firebase": "^5.5.0",
     "hammerjs": "^2.0.8",
-    "jquery": "^1.9.1",
+    "jquery": "^3.5.0",
     "jw-angular-pagination": "^1.1.0",
     "ng-http-loader": "^6.0.1",
     "popper.js": "^1.14.7",
